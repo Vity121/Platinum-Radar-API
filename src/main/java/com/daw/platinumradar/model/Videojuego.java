@@ -21,7 +21,7 @@ public class Videojuego {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 2. Campo generado automáticamente para cumplir el requisito de @Column(unique = true)[cite: 3]
+    // 2. Campo UNIQUE generado automáticamente
     @Column(nullable = false, unique = true, length = 36)
     private String codigoRegistro = UUID.randomUUID().toString();
 
@@ -33,35 +33,35 @@ public class Videojuego {
     @Column(name = "steam_app_id", nullable = true, length = 15)
     private String steamAppId;
 
-    // 5. Estado de progreso en la biblioteca del usuario (ej. "Completado", "Jugando")
+    // 5. Estado de progreso en la biblioteca del usuario
     @Column(nullable = false, length = 25)
     private String estado;
 
-    // 6. Tipos Wrapper exigidos por la rúbrica para manejar nulos de BD (Double)[cite: 3]
+    // 6. Tipos Wrapper exigidos por la rúbrica para manejar nulos de BD (Double)
     @Column(nullable = false)
     private Double horasJugadas;
 
-    // 7. Porcentaje completado (Double)
+    // 7. Porcentaje completado
     @Column(nullable = false)
     private Double porcentajeHistoria;
 
-    // 8. Precio que el usuario está dispuesto a pagar (Double)
+    // 8. Precio que el usuario está dispuesto a pagar
     @Column(nullable = false)
     private Double precioObjetivo;
 
-    // 9. Fecha del último acceso, ideal para usar @PastOrPresent en los DTOs[cite: 4]
+    // 9. Fecha del último acceso
     @Column(nullable = false)
     private LocalDate ultimaPartida;
 
-    // 10. Email para aislar los datos y cumplir con la autoría de cada usuario
+    // 10. Email del usuario
     @Column(nullable = false, length = 120)
     private String emailUsuario;
 
-    // 11. Tipo Wrapper para el booleano[cite: 3]
+    // 11. Booleano para oferta activa
     @Column(nullable = false)
     private Boolean alertaOfertaActiva;
 
-    // 12. Mapeo de lista simple requerido por la rúbrica[cite: 3]
+    // 12. Mapeo de lista de logros
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
             name = "videojuego_logros",
