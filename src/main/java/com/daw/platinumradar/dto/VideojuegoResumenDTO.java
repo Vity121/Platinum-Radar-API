@@ -15,5 +15,5 @@ public class VideojuegoResumenDTO {
     private LocalDate ultimaPartida;
     private Boolean alertaOfertaActiva;
     private List<String> logrosDesbloqueados = new ArrayList<>();
-    
+
 }
